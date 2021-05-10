@@ -18,10 +18,10 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "f1", "f2", "f3", "f4" , "f5", "f6", "f7", "f8", "f9" };
 
-static const char *tagselfg[] = { "#000000", "#000000", "#000000", "#000000", "#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff" };
-static const char *tagselbg[] = { "#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#9400d3", "#ffffff", "#000000" };
+static const char *tagselfg[] = { "#000000", "#000000", "#000000", "#000000", "#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff", "#000000", "#000000", "#000000", "#000000", "#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff" };
+static const char *tagselbg[] = { "#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#9400d3", "#ffffff", "#000000", "#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#9400d3", "#ffffff", "#000000" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -70,6 +70,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	/*{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -103,6 +104,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_F1,                     9)
+	TAGKEYS(                        XK_F2,                     10)
+	TAGKEYS(                        XK_F3,                     11)
+	TAGKEYS(                        XK_F4,                     12)
+        TAGKEYS(                        XK_F5,                     13)
+	TAGKEYS(                        XK_F6,                     14)
+	TAGKEYS(                        XK_F7,                     15)
+	TAGKEYS(                        XK_F8,                     16)
+	TAGKEYS(                        XK_F9,                     17)
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
 };
 
