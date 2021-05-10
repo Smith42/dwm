@@ -20,7 +20,7 @@ static const int extrabar           = 1;        /* 0 means no extra bar */
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
-static const char *tagselfg[] = { "#ffffff", "#ffffff", "#000000", "#000000", "#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff" };
+static const char *tagselfg[] = { "#000000", "#000000", "#000000", "#000000", "#ffffff", "#ffffff", "#ffffff", "#000000", "#ffffff" };
 static const char *tagselbg[] = { "#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#9400d3", "#ffffff", "#000000" };
 
 static const Rule rules[] = {
