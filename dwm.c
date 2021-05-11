@@ -287,8 +287,6 @@ static Bar eb;
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
 
-static ClrScheme tagscheme[LENGTH(tags)];
-
 /* function implementations */
 void
 applyrules(Client *c)
@@ -746,7 +744,7 @@ drawbar(Monitor *m)
 		if(!(occ & 1 << i || m->tagset[m->seltags] & 1 << i))
 			continue;
 		w = TEXTW(tags[i]);
-		drw_setscheme(drw, m->tagset[m->seltags] & 1 << i ? &tagscheme[i] : &scheme[SchemeNorm]);
+		drw_setscheme(drw, m->tagset[m->seltags] & 1 << i ? &scheme[SchemeSel] : &scheme[SchemeNorm]);
 		drw_text(drw, x, 0, w, bh, tags[i], urg & 1 << i);
 		drw_rect(drw, x + 1, 1, dx, dx, m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 		           0, urg & 1 << i);
@@ -1621,13 +1619,6 @@ setup(void)
 	scheme[SchemeSel].border = drw_clr_create(drw, selbordercolor);
 	scheme[SchemeSel].bg = drw_clr_create(drw, selbgcolor);
 	scheme[SchemeSel].fg = drw_clr_create(drw, selfgcolor);
-
-	for (unsigned int i = 0; i < LENGTH(tags); i++) {
-		tagscheme[i].bg = drw_clr_create(drw, tagselbg[i]);
-		tagscheme[i].fg = drw_clr_create(drw, tagselfg[i]);
-		tagscheme[i].border = drw_clr_create(drw, selbordercolor);
-	}
-
 	/* init bars */
 	updatebars();
 	updatestatus();
